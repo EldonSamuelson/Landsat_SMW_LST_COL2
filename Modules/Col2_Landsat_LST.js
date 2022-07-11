@@ -97,13 +97,13 @@ var COLLECTION = ee.Dictionary({
     'TOA': ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA'),
     'SR': ee.ImageCollection('LANDSAT/LC08/C02/T1_L2'),
     'TOA_TIR': ['B10','B11'],
-	'SR_TIR': ['ST_B10']
+	'SR_TIR': ['ST_B10',]
   },
   'L9': {
     'TOA': ee.ImageCollection('LANDSAT/LC09/C02/T1_TOA'),
     'SR': ee.ImageCollection('LANDSAT/LC09/C02/T1_L2'),
     'TOA_TIR': ['B10','B11'],
-  'SR_TIR': ['ST_B10']
+  'SR_TIR': ['ST_B10',]
 }});
 
 
