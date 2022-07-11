@@ -79,7 +79,7 @@ var COLLECTION = ee.Dictionary({
     'TOA': ee.ImageCollection('LANDSAT/LT04/C02/T1_TOA'),
     'SR': ee.ImageCollection('LANDSAT/LT04/C02/T1_L2'),
 	'TOA_TIR': ['B6',],
-	'SR_TIR': ['ST_B6',]
+	'SR_TIR': ['Booyah',]
   },
   'L5': {
     'TOA': ee.ImageCollection('LANDSAT/LT05/C02/T1_TOA'),
