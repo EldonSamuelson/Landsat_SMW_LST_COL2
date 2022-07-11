@@ -131,7 +131,7 @@ exports.collection = function(landsat, date_start, date_end, geometry, use_ndvi)
   // all channels from surface reflectance collection
   // all channels from TOA collection EXCEPT TIR
   // select TIR bands
-  var tir = ee.List(collection_dict.get('SR_TIR'));
+  var tir = ee.List(collection_dict.get('TIR'));
   var landsatALL = (landsatSR.combine(landsatTOA.select(tir), true));
   
   // compute the LST
