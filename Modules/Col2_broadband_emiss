@@ -25,7 +25,7 @@ or
 var collectionwithBBE = ImageCollection.map(BBEfun.addBand(dynamic))
 
 USES:
-    - ASTER_bare_emiss.js
+    - Col2_ASTER_bare_emiss.js
 
 INPUTS:
         - dynamic: <boolean>
@@ -86,7 +86,7 @@ exports.addBand = function(dynamic){
     var bbe = image.expression('0.128 + 0.014*em10 + 0.145*em11 + 0.241*em12 + 0.467*em13 + 0.004*em14',
       {'em10':em10,'em11':em11,'em12':em12,'em13':em13,'em14':em14});
     
-    return image.addBands(bbe.rename('BBE'))
-  }
-  return wrap
-}
+    return image.addBands(bbe.rename('BBE'));
+  };
+  return wrap;
+};
