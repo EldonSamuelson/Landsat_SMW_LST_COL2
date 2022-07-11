@@ -19,7 +19,7 @@ to call this function use:
 var LandsatLST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_Landsat_LST.js')
 var LandsatCollection = LandsatLST.collection(landsat, date_start, date_end, geometry)
 
-USES:
+USES (Col2):
     - NCEP_TPW.js
     - cloudmask.js
     - compute_NDVI.js
@@ -60,17 +60,17 @@ OUTPUTS:
 
 // MODULES DECLARATION -----------------------------------------------------------
 // Total Precipitable Water 
-var NCEP_TPW = require('users/sofiaermida/landsat_smw_lst:modules/NCEP_TPW.js')
+var NCEP_TPW = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_NCEP_TPW.js');
 //cloud mask
-var cloudmask = require('users/sofiaermida/landsat_smw_lst:modules/cloudmask.js')
+var cloudmask = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_cloudmask.js');
 //Normalized Difference Vegetation Index
-var NDVI = require('users/sofiaermida/landsat_smw_lst:modules/compute_NDVI.js')
+var NDVI = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_compute_NDVI.js');
 //Fraction of Vegetation cover
-var FVC = require('users/sofiaermida/landsat_smw_lst:modules/compute_FVC.js')
+var FVC = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_compute_FVC.js');
 //surface emissivity
-var EM = require('users/sofiaermida/landsat_smw_lst:modules/compute_emissivity.js')
+var EM = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_compute_emissivity.js');
 // land surface temperature
-var LST = require('users/sofiaermida/landsat_smw_lst:modules/SMWalgorithm.js')
+var LST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_SMWalgorithm.js');
 // --------------------------------------------------------------------------------
 
 // Note: the original script only had 'TIR' 
@@ -100,11 +100,11 @@ var COLLECTION = ee.Dictionary({
 	'SR_TIR': ['ST_B10']
   },
   'L9': {
-	'TOA': ee.ImageCollection('LANDSAT/LC09/C02/T1_TOA'),
-	'SR': ee.ImageCollection('LANDSAT/LC09/C02/T1_L2'),
-	'TOA_TIR': ['B10','B11'],
-	'SR_TIR': ['ST_B10']
-});
+    'TOA': ee.ImageCollection('LANDSAT/LC09/C02/T1_TOA'),
+    'SR': ee.ImageCollection('LANDSAT/LC09/C02/T1_L2'),
+    'TOA_TIR': ['B10','B11'],
+    'SR_TIR': ['ST_B10']
+}});
 
 
 exports.collection = function(landsat, date_start, date_end, geometry, use_ndvi) {
