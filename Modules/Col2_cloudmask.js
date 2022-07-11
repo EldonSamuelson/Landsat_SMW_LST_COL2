@@ -28,8 +28,8 @@ OUTPUTS:
 exports.toa = function(image) {
   var qa = image.select('QA_PIXEL');
   var mask = qa.bitwiseAnd(1 << 3)
-  .or(qa.bitwiseAnd(1 << 4));
-  return image.updateMask(mask.not);
+    .or(qa.bitwiseAnd(1 << 4));
+  return image.updateMask(mask.not());
 };
 
 // cloudmask for SR data
