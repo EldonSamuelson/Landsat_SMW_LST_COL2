@@ -1,15 +1,16 @@
 /*
-Orignal Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
+Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
+https://github.com/sofiaermida/Landsat_SMW_LST
 
-Updated to USGS Collection 2 Definitions by Séamus O'Donnell
+Updated to USGS Collection 2 Definitions by Séamus O'Donnell (https://bit.ly/3P0jXUO)
 
 This code is free and open. 
-By using this code and any data derived with it, 
-you agree to cite the following reference 
-in any publications derived from them:
+By using this code and any data derived with it, you agree to cite the following 
+reference in any publications derived from them:
 Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020. 
     Google Earth Engine open-source code for Land Surface Temperature estimation from the Landsat series.
     Remote Sensing, 12 (9), 1471; https://doi.org/10.3390/rs12091471
+    
 Malakar, N.K., Hulley, G.C., Hook, S.J., Laraby, K., Cook, M., Schott, J.R., 2018. 
     An Operational Land Surface Temperature Product for Landsat Thermal Data: Methodology 
     and Validation. IEEE Trans. Geosci. Remote Sens. 56, 5717–5735. 
@@ -41,13 +42,10 @@ OUTPUTS:
           'BBE': broad-band emissivity
 */
 
-
-
-var ASTERGED = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_ASTER_bare_emiss.js')
+var ASTERGED = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_ASTER_bare_emiss.js');
 
 exports.addBand = function(dynamic){
   var wrap = function(image){
-    
     // get ASTER emissivity
     var aster = ee.Image("NASA/ASTER_GED/AG100_003")
       .clip(image.geometry());
@@ -82,7 +80,6 @@ exports.addBand = function(dynamic){
       'em_bare':ASTERGED.emiss_bare_band14(image)});
     var em14 = ee.Image(ee.Algorithms.If(dynamic,dynam,orig));
       
-    
     var bbe = image.expression('0.128 + 0.014*em10 + 0.145*em11 + 0.241*em12 + 0.467*em13 + 0.004*em14',
       {'em10':em10,'em11':em11,'em12':em12,'em13':em13,'em14':em14});
     
