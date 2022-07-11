@@ -27,7 +27,7 @@ or
 var collectionwithEM = ImageCollection.map(EMfun.addBand(landsat))
 
 USES:
-    - ASTER_bare_emiss.js
+    - Col2_ASTER_bare_emiss.js
     
 INPUTS:
         - landsat: <string>
@@ -99,6 +99,6 @@ exports.addBand = function(landsat, use_ndvi){
     var EM = ee.Image(ee.Algorithms.If(use_ndvi,EMd,EM0));
    
     return image.addBands(EM.rename('EM'));
-  }
-  return wrap
-}
+  };
+  return wrap;
+};
