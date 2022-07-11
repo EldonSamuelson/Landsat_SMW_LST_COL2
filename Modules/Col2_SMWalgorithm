@@ -21,7 +21,7 @@ or
 var collectionwithLST = ImageCollection.map(LSTfun.addBand(landsat))
 
 USES:
-    - SMW_coefficients.js
+    - Col2_SMW_coefficients.js
 
 INPUTS:
         - landsat: <string>
@@ -85,7 +85,7 @@ exports.addBand = function(landsat){
          }).updateMask(image.select('TPW').lt(0).not());
          
     
-    return image.addBands(lst.rename('LST'))
+    return image.addBands(lst.rename('LST'));
   };
-  return wrap
-}
+  return wrap;
+};
