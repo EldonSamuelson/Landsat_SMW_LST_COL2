@@ -38,7 +38,7 @@ var exImage = LandsatColl.first();
 var cmap1 = ['blue', 'cyan', 'green', 'yellow', 'red'];
 var cmap2 = ['F2F2F2','EFC2B3','ECB176','E9BD3A','E6E600','63C600','00A600']; 
 
-Map.centerObject(geometry, 8);
+Map.centerObject(geometry, 9);
 Map.addLayer(exImage.select('TPW'),{min:0.0, max:60.0, palette:cmap1},'TCWV');
 Map.addLayer(exImage.select('TPWpos'),{min:0.0, max:9.0, palette:cmap1},'TCWVpos');
 Map.addLayer(exImage.select('FVC'),{min:0.0, max:1.0, palette:cmap2}, 'FVC');
