@@ -35,7 +35,7 @@ OUTPUTS:
 
 
 // get ASTER emissivity
-var aster = ee.Image("NASA/ASTER_GED/AG100_003")
+var aster = ee.Image("NASA/ASTER_GED/AG100_003");
 
 //get ASTER FVC from NDVI
 var aster_ndvi = aster.select('ndvi').multiply(0.01);
@@ -50,33 +50,33 @@ exports.emiss_bare_band10 = function(image){
   return image.expression('(EM - 0.99*fvc)/(1.0-fvc)',{
     'EM':aster.select('emissivity_band10').multiply(0.001),
     'fvc':aster_fvc})
-    .clip(image.geometry())
+    .clip(image.geometry());
 };
 
 exports.emiss_bare_band11 = function(image){
   return image.expression('(EM - 0.99*fvc)/(1.0-fvc)',{
     'EM':aster.select('emissivity_band11').multiply(0.001),
     'fvc':aster_fvc})
-    .clip(image.geometry())
+    .clip(image.geometry());
 };
 
 exports.emiss_bare_band12 = function(image){
   return image.expression('(EM - 0.99*fvc)/(1.0-fvc)',{
     'EM':aster.select('emissivity_band12').multiply(0.001),
     'fvc':aster_fvc})
-    .clip(image.geometry())
+    .clip(image.geometry());
 };
 
 exports.emiss_bare_band13 = function(image){
   return image.expression('(EM - 0.99*fvc)/(1.0-fvc)',{
     'EM':aster.select('emissivity_band13').multiply(0.001),
     'fvc':aster_fvc})
-    .clip(image.geometry())
+    .clip(image.geometry());
 };
 
 exports.emiss_bare_band14 = function(image){
   return image.expression('(EM - 0.99*fvc)/(1.0-fvc)',{
     'EM':aster.select('emissivity_band14').multiply(0.001),
     'fvc':aster_fvc})
-    .clip(image.geometry())
+    .clip(image.geometry());
 };
