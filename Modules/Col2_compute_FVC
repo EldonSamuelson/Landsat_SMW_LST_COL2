@@ -22,7 +22,7 @@ or
 var collectionwithFVC = ImageCollection.map(FVCfun.addBand(landsat))
 
 USES:
-    - SMW_coefficients.js
+    - Col2_SMW_coefficients.js
 
 INPUTS:
         - landsat: <string>
