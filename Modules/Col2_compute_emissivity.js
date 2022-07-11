@@ -1,12 +1,12 @@
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
+https://github.com/sofiaermida/Landsat_SMW_LST
 
-Updated to USGS Collection 2 Definitions by Séamus O'Donnell
+Updated to USGS Collection 2 Definitions by Séamus O'Donnell (https://bit.ly/3P0jXUO)
 
 This code is free and open. 
-By using this code and any data derived with it, 
-you agree to cite the following reference 
-in any publications derived from them:
+By using this code and any data derived with it, you agree to cite the following 
+reference in any publications derived from them:
 Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020. 
     Google Earth Engine open-source code for Land Surface Temperature estimation from the Landsat series.
     Remote Sensing, 12 (9), 1471; https://doi.org/10.3390/rs12091471
@@ -14,7 +14,7 @@ Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020.
 this function computes surface emissivity for Landsat
 requires values of FVC: compute_FVC.js
 
-ref: Malakar, N.K., Hulley, G.C., Hook, S.J., Laraby, K., Cook, M., Schott, J.R., 2018. 
+Malakar, N.K., Hulley, G.C., Hook, S.J., Laraby, K., Cook, M., Schott, J.R., 2018. 
     An Operational Land Surface Temperature Product for Landsat Thermal Data: Methodology 
     and Validation. IEEE Trans. Geosci. Remote Sens. 56, 5717–5735. 
     https://doi.org/10.1109/TGRS.2018.2824828
@@ -43,15 +43,18 @@ OUTPUTS:
         - <ee.Image>
           the input image with 1 new band: 
           'EM': surface emissivity of TIR band
+          
+  11-07-2022: ## UPDATER DISCLAIMER ##
+              Malakar et al. (2018) produced these coefficients before Landsat 9 was 
+              launched in 2021, so exact calibration is not available. As such, Landsat 
+              8 coefficients are used instead.
+              Trust the Landsat 9 results at your own risk!
 */
 
-var ASTERGED = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_ASTER_bare_emiss.js')
+var ASTERGED = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_ASTER_bare_emiss.js');
 
 // this function computes the emissivity of the 
 // Landsat TIR band using ASTER and FVC
-// ## UPDATER DISCLAIMER ##
-// Malakar et al. 2018 produced these coefficients before Landsat 9 was launched in 2021, so exact calibration is not available. As such, Landsat 8 coefficients are used instead.
-// Trust the Landsat 9 results at your own risk!
 exports.addBand = function(landsat, use_ndvi){
   var wrap = function(image){
     
@@ -97,7 +100,6 @@ exports.addBand = function(landsat, use_ndvi){
       
     // select which emissivity to output based on user selection
     var EM = ee.Image(ee.Algorithms.If(use_ndvi,EMd,EM0));
-   
     return image.addBands(EM.rename('EM'));
   };
   return wrap;
