@@ -57,9 +57,10 @@ OUTPUTS:
   14-08-2020: (SE) update to avoid using the getInfo() and if() 
     (Thanks Tyler Erickson for the suggestion)
   
-  11-07-2022: (SO) The original script only had 'TIR'. Now with Collection 2, SR 
-              TIR bands are now prefixed with 'ST_'. I am not yet sure of the 
-              implications this has on the final results (Lines 139-140).
+  11-07-2022: (SO) The original Collection 1 script only had 'TIR', Bands 9 or 10.
+              Now with Collection 2, SR TIR bands are now prefixed with 'ST_'. I 
+              am not yet sure of the implications this has on the final results, 
+              i.e. (Lines 139-140).
 */
 
 // MODULES DECLARATION -----------------------------------------------------------
