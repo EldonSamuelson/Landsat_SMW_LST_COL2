@@ -1,9 +1,16 @@
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
+https://github.com/sofiaermida/Landsat_SMW_LST
 
-Updated to USGS Collection 2 Definitions by Séamus O'Donnell
+Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020. 
+    Google Earth Engine open-source code for Land Surface Temperature estimation from the Landsat series.
+    Remote Sensing, 12 (9), 1471; https://doi.org/10.3390/rs12091471
+    
+Updated to USGS Collection 2 Definitions by Séamus O'Donnell (https://bit.ly/3P0jXUO)
 
-this function mask clouds and cloud shadow using the Quality band
+This code is free and open. 
+
+this function mask clouds and cloud shadow using the Quality bands from the USGS
 
 to call this function use:
 
