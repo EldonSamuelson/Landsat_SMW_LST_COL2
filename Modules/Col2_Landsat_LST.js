@@ -1,12 +1,12 @@
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
+https://github.com/sofiaermida/Landsat_SMW_LST
 
-Updated to Collection 2 Definitions by Séamus O'Donnell
+Updated to USGS Collection 2 Definitions by Séamus O'Donnell (https://bit.ly/3P0jXUO)
 
 This code is free and open. 
-By using this code and any data derived with it, 
-you agree to cite the following reference 
-in any publications derived from them:
+By using this code and any data derived with it, you agree to cite the following 
+reference in any publications derived from them:
 Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020. 
     Google Earth Engine open-source code for Land Surface Temperature estimation from the Landsat series.
     Remote Sensing, 12 (9), 1471; https://doi.org/10.3390/rs12091471
