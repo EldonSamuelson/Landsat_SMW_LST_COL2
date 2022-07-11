@@ -45,7 +45,6 @@ L7coll = L7coll.map(BBE.addBand(true));
 L5coll = L5coll.map(BBE.addBand(true));
 L4coll = L4coll.map(BBE.addBand(true));
 
-
 // get bands for each landsat in one collection
 var getband = function(landsat, bandname){
   var wrap = function(image){
@@ -61,6 +60,7 @@ LandsatColl = LandsatColl.merge(L7coll.map(getband('L7',bandname)));
 LandsatColl = LandsatColl.merge(L5coll.map(getband('L5',bandname)));
 LandsatColl = LandsatColl.merge(L4coll.map(getband('L4',bandname)));
 
+// Timeseries chart (see console)
 var TimeSeries = ui.Chart.image.series(
     LandsatColl, geometry, ee.Reducer.mean(), 30, 'system:time_start')
         .setChartType('ScatterChart')
@@ -69,8 +69,7 @@ var TimeSeries = ui.Chart.image.series(
           lineWidth: 1,
           pointSize: 4
 });
-print(TimeSeries)
-
+print(TimeSeries);
 
 // uncomment and edit the code below to export timeseries to your drive
 /*
