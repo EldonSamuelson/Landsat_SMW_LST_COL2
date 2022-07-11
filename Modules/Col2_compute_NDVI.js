@@ -31,6 +31,8 @@ OUTPUTS:
         - <ee.Image>
           the input image with 1 new band: 
           'NDVI': normalized difference vegetation index
+      
+    11-07-2022
 */
 
 exports.addBand = function(landsat){
