@@ -54,8 +54,12 @@ OUTPUTS:
           - 'EM': surface emissvity for TIR band
           - 'LST': land surface temperature
           
-  14-08-2020: update to avoid using the getInfo() and if() 
+  14-08-2020: (SE) update to avoid using the getInfo() and if() 
     (Thanks Tyler Erickson for the suggestion)
+  
+  11-07-2022: (SO) The original script only had 'TIR'. Now with Collection 2, SR 
+              TIR bands are now prefixed with 'ST_'. I am not yet sure of the 
+              implications this has on the final results (Lines 139-140).
 */
 
 // MODULES DECLARATION -----------------------------------------------------------
@@ -73,7 +77,8 @@ var EM = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_compute_emissivity.js
 var LST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_SMWalgorithm.js');
 // --------------------------------------------------------------------------------
 
-// Note: the original script only had 'TIR' 
+// Note: the original script only had 'TIR', and now with Collection 2, SR TIR is now prefixed with 'ST_'
+// 11/July/2022 I am not yet sure of the implications this has on the final results
 var COLLECTION = ee.Dictionary({
   'L4': {
     'TOA': ee.ImageCollection('LANDSAT/LT04/C02/T1_TOA'),
