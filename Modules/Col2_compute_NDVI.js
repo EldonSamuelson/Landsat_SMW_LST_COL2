@@ -13,7 +13,6 @@ Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020.
 
 this function computes NDVI values for Landsat from SR(L2) Products
 
-
 to call this function use:
 
 var NDVIfun = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_compute_NDVI.js')
@@ -32,7 +31,8 @@ OUTPUTS:
           the input image with 1 new band: 
           'NDVI': normalized difference vegetation index
       
-    11-07-2022
+  11-07-2022: Scaling factor changed in Lines 50-51, as per:
+              https://www.usgs.gov/faqs/how-do-i-use-scale-factor-landsat-level-2-science-products
 */
 
 exports.addBand = function(landsat){
