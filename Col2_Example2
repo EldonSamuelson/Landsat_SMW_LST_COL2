@@ -28,6 +28,7 @@ var date_start = '1982-08-01';
 var date_end = '2022-06-30';
 var use_ndvi = true;
 
+// center and zoom map to AOI
 Map.centerObject(geometry, 9);
 
 // compute the LST for each Landsat
