@@ -23,9 +23,9 @@ var LandsatLST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_Landsat_LST.j
 
 // select region of interest, date range, and landsat satellite
 var geometry = ee.Geometry.Rectangle([-8.91, 40.0, -8.3, 40.4]);
-var satellite = 'L8';
-var date_start = '2018-05-15';
-var date_end = '2018-05-31';
+var satellite = 'L9';
+var date_start = '2022-05-15';
+var date_end = '2022-06-30';
 var use_ndvi = true;
 
 // get landsat collection with added variables: NDVI, FVC, TPW, EM, LST
