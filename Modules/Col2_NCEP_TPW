@@ -50,13 +50,13 @@ exports.addBand = function(image){
   var datedist = function(image){
     return image.set('DateDist',
       ee.Number(image.get('system:time_start'))
-      .subtract(date.millis()).abs())
+      .subtract(date.millis()).abs());
   };
   
   // load atmospheric data collection
   var TPWcollection = ee.ImageCollection('NCEP_RE/surface_wv')
                   .filter(ee.Filter.date(date1.format('yyyy-MM-dd'), date2.format('yyyy-MM-dd')))
-                  .map(datedist)
+                  .map(datedist);
                   
   // select the two closest model times
     var closest = (TPWcollection.sort('DateDist')).toList(2);
@@ -101,5 +101,5 @@ exports.addBand = function(image){
   // add tpw to image as a band
   var withTPW = (image.addBands(tpw.rename('TPW'),['TPW'])).addBands(pos.rename('TPWpos'),['TPWpos']);
   
-  return withTPW
+  return withTPW;
 };
