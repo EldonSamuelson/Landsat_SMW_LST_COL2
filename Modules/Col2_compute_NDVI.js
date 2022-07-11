@@ -1,7 +1,15 @@
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
+https://github.com/sofiaermida/Landsat_SMW_LST
 
-Updated to USGS Collection 2 Definitions by Séamus O'Donnell
+Updated to USGS Collection 2 Definitions by Séamus O'Donnell (https://bit.ly/3P0jXUO)
+
+This code is free and open. 
+By using this code and any data derived with it, you agree to cite the following 
+reference in any publications derived from them:
+Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020. 
+    Google Earth Engine open-source code for Land Surface Temperature estimation from the Landsat series.
+    Remote Sensing, 12 (9), 1471; https://doi.org/10.3390/rs12091471
 
 this function computes NDVI values for Landsat from SR(L2) Products
 
@@ -36,8 +44,6 @@ exports.addBand = function(landsat){
 						ee.Algorithms.If(landsat==='L8','SR_B4','SR_B3')));
   
     // compute NDVI 
-	// Scaling factor changed from Col 1 (0.0001) to Col 2, as per:
-	// https://www.usgs.gov/faqs/how-do-i-use-scale-factor-landsat-level-2-science-products
     return image.addBands(image.expression('(nir-red)/(nir+red)',{
       'nir':image.select(nir).multiply(0.0000275).add(-0.2),
       'red':image.select(red).multiply(0.0000275).add(-0.2)
