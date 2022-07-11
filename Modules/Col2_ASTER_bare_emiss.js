@@ -2,7 +2,8 @@
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
 https://github.com/sofiaermida/Landsat_SMW_LST
 
-Updated to USGS Collection 2 Definitions by Séamus O'Donnell (https://bit.ly/3P0jXUO)
+Updated to USGS Collection 2 Definitions by Séamus O'Donnell 
+(https://www.linkedin.com/in/seamusodonnell/)
 
 This code is free and open. 
 By using this code and any data derived with it, you agree to cite the following 
