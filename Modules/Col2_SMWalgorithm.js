@@ -57,7 +57,7 @@ exports.addBand = function(landsat){
                                         ee.Algorithms.If(landsat==='L5',SMWcoef.coeff_SMW_L5,
                                         ee.Algorithms.If(landsat==='L7',SMWcoef.coeff_SMW_L7,
                                         ee.Algorithms.If(landsat==='L8',SMWcoef.coeff_SMW_L8,
-                                        SMWcoeff_SMW_L9)))));
+                                        SMWcoef.coeff_SMW_L9)))));
     
     // Create lookups for the algorithm coefficients
     var A_lookup = get_lookup_table(coeff_SMW, 'TPWpos', 'A');
