@@ -79,31 +79,31 @@ var COLLECTION = ee.Dictionary({
     'TOA': ee.ImageCollection('LANDSAT/LT04/C02/T1_TOA'),
     'SR': ee.ImageCollection('LANDSAT/LT04/C02/T1_L2'),
 	'TOA_TIR': ['B6',],
-	'SR_TIR': ['ST_B6',]
+	'SR_TIR': ['B6',]
   },
   'L5': {
     'TOA': ee.ImageCollection('LANDSAT/LT05/C02/T1_TOA'),
     'SR': ee.ImageCollection('LANDSAT/LT05/C02/T1_L2'),
     'TOA_TIR': ['B6',],
-	'SR_TIR': ['ST_B6',]
+	'SR_TIR': ['B6',]
   },
   'L7': {
     'TOA': ee.ImageCollection('LANDSAT/LE07/C02/T1_TOA'),
     'SR': ee.ImageCollection('LANDSAT/LE07/C02/T1_L2'),
     'TOA_TIR': ['B6_VCID_1','B6_VCID_2'],
-	'SR_TIR': ['ST_B6',]
+	'SR_TIR': ['B6',]
   },
   'L8': {
     'TOA': ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA'),
     'SR': ee.ImageCollection('LANDSAT/LC08/C02/T1_L2'),
     'TOA_TIR': ['B10','B11'],
-	'SR_TIR': ['ST_B10']
+	'SR_TIR': ['B10']
   },
   'L9': {
     'TOA': ee.ImageCollection('LANDSAT/LC09/C02/T1_TOA'),
     'SR': ee.ImageCollection('LANDSAT/LC09/C02/T1_L2'),
     'TOA_TIR': ['B10','B11'],
-  'SR_TIR': ['ST_B10']
+  'SR_TIR': ['B10']
 }});
 
 
