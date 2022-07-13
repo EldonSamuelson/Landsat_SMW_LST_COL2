@@ -24,20 +24,23 @@ var LandsatLST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_Landsat_LST.j
 var BBE = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_broadband_emiss.js');
 
 // select region of interest, date range, and landsat satellite
-var site = 
-/* color: #d60000 */
-ee.Geometry.Point([0,51.5]);
-var geometry = site.buffer(30);
+var site = ee.Geometry.Point([0,51.5]);
+//var geometry = site.buffer(30);
 var date_start = '1982-06-01';
 var date_end = '2022-07-30';
 var use_ndvi = true;
 
-// center and zoom map to AOI
-Map.centerObject(geometry, 3);
+// Map settings
+Map.centerObject(site, 3);
 Map.clear();
 Map.setControlVisibility(false);
 Map.style().set('cursor', 'crosshair');
 Map.setOptions("HYBRID");
+// Creates LST on point clicked on the map
+Map.onClick(function(coords) {
+    var location = 'lon: ' + coords.lon.toFixed(3) +
+                   'lat: ' + coords.lat.toFixed(3);
+    var geometry = ee.Geometry.Point(coords.lon, coords.lat);
 
 // compute the LST for each Landsat
 var L9coll = LandsatLST.collection('L9', date_start, date_end, geometry, use_ndvi);
@@ -69,10 +72,6 @@ LandsatColl = LandsatColl.merge(L5coll.map(getband('L5',bandname)));
 LandsatColl = LandsatColl.merge(L4coll.map(getband('L4',bandname)));
 
 // Timeseries chart (see console)
-Map.onClick(function(coords) {
-    var location = 'lon: ' + coords.lon.toFixed(3) +
-                   'lat: ' + coords.lat.toFixed(3);
-    var point = ee.Geometry.Point(coords.lon, coords.lat);
 var TimeSeries = ui.Chart.image.series(
     LandsatColl, geometry/*, ee.Reducer.mean(), 30, 'system:time_start'*/)
         .setChartType('ScatterChart')
