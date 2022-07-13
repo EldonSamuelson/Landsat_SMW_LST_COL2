@@ -1,6 +1,3 @@
-/**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var site = /* color: #d60000 */ee.Geometry.Point([-1.2426221278425853, 51.56905276058425]);
-/***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
 https://github.com/sofiaermida/Landsat_SMW_LST
@@ -27,7 +24,9 @@ var LandsatLST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_Landsat_LST.j
 var BBE = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_broadband_emiss.js');
 
 // select region of interest, date range, and landsat satellite
-
+var site = 
+/* color: #d60000 */
+ee.Geometry.Point([-1.2426221278425853, 51.56905276058425]);
 var geometry = site.buffer(30);
 var date_start = '2015-01-01';
 var date_end = '2022-07-30';
