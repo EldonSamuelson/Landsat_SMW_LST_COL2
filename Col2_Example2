@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var site = /* color: #d60000 */ee.Geometry.Point([-116.01947, 36.62373]);
+var site = /* color: #d60000 */ee.Geometry.Point([-9.830825828274333, 52.29118735816345]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
@@ -78,8 +78,20 @@ var TimeSeries = ui.Chart.image.series(
             viewWindow: {min: 263.15, max:333.15},
                         title: bandname + ', K'
                         },
+        explorer: {},
         lineWidth: 1,
-        pointSize: 4
+        pointSize: 4,
+        trendlines: {
+          // Draw a trendline for data series 0.
+          0: {
+            visibleInLegend: true,
+            labelInLegend: 'L5 Temperature Trend',
+          },
+          /*1: {
+            visibleInLegend: true,
+            labelInLegend: 'L7 Trend',
+          },*/
+          }
 });
 print(TimeSeries);
 
