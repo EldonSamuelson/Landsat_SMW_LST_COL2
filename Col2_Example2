@@ -29,8 +29,8 @@ var BBE = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_broadband_emiss.js')
 // select region of interest, date range, and landsat satellite
 
 var geometry = site.buffer(30);
-var date_start = '1982-08-01';
-var date_end = '2022-06-30';
+var date_start = '1982-01-01';
+var date_end = '2022-07-30';
 var use_ndvi = true;
 
 // center and zoom map to AOI
@@ -67,12 +67,19 @@ LandsatColl = LandsatColl.merge(L4coll.map(getband('L4',bandname)));
 
 // Timeseries chart (see console)
 var TimeSeries = ui.Chart.image.series(
-    LandsatColl, geometry, ee.Reducer.mean(), 30, 'system:time_start')
+    LandsatColl, geometry/*, ee.Reducer.mean(), 30, 'system:time_start'*/)
         .setChartType('ScatterChart')
         .setOptions({
-          vAxis: {title: bandname},
-          lineWidth: 1,
-          pointSize: 4
+          title: 'Surface Temperature',
+          hAxis: {  // x-axis
+            viewWindow: {title: 'Acquisition Time'}
+          },
+          vAxis: {  // y-axis
+            viewWindow: {min: 263.15, max:333.15},
+                        title: bandname + ', K'
+                        },
+        lineWidth: 1,
+        pointSize: 4
 });
 print(TimeSeries);
 
