@@ -34,8 +34,8 @@ var date_end = '2022-07-30';
 var use_ndvi = true;
 
 // center and zoom map to AOI
-Map.centerObject(geometry, 9);
-Map.setOptions("SATELLITE");
+Map.centerObject(geometry, 12);
+Map.setOptions("HYBRID");
 
 // compute the LST for each Landsat
 var L9coll = LandsatLST.collection('L9', date_start, date_end, geometry, use_ndvi);
