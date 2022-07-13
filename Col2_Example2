@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var site = /* color: #d60000 */ee.Geometry.Point([19.13482786147626, 65.58410468355409]);
+var site = /* color: #d60000 */ee.Geometry.Point([-1.2426221278425853, 51.56905276058425]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
