@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var site = /* color: #d60000 */ee.Geometry.Point([-9.830825828274333, 52.29118735816345]);
+var site = /* color: #d60000 */ee.Geometry.Point([16.30992958694091, 48.18033461665665]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
@@ -35,6 +35,7 @@ var use_ndvi = true;
 
 // center and zoom map to AOI
 Map.centerObject(geometry, 9);
+Map.setOptions("SATELLITE");
 
 // compute the LST for each Landsat
 var L9coll = LandsatLST.collection('L9', date_start, date_end, geometry, use_ndvi);
