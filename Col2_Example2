@@ -86,7 +86,7 @@ var TimeSeries = ui.Chart.image.series(
           // Draw a trendline for data series 0.
           1: {
             visibleInLegend: true,
-            labelInLegend: bandname +' Temperature Trend',
+            labelInLegend: bandname + ' Temperature Trend',
           },
           /*1: {
             visibleInLegend: true,
