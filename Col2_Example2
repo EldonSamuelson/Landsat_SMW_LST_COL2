@@ -106,10 +106,11 @@ var Chartpanel = ui.Panel({
   layout: ui.Panel.Layout.flow('vertical'),
   style: {
   width: '33%',
+  height: 'max',
   position: "bottom-left"
   }})
     .add(ui.Label({
-      value: 'Click anywhere to generate a timeseries chart of that point', 
+      value: 'Click on a place to generate a temperature timeseries chart of that point', 
       style: {position: 'top-center', textAlign: 'center', fontWeight: 'bold', whiteSpace: 'pre'}
     }));
 Map.add(Chartpanel);
