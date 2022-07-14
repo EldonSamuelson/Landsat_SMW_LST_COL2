@@ -39,7 +39,7 @@ Map.setOptions("HYBRID");
 // Creates LST on point clicked on the map
 Map.onClick(function(coords) {
     var location = 'Lon: ' + coords.lon.toFixed(3) +
-                   'Lat: ' + coords.lat.toFixed(3);
+                   ' Lat: ' + coords.lat.toFixed(3);
     var geometry = ee.Geometry.Point(coords.lon, coords.lat);
 
 // compute the LST for each Landsat
@@ -78,12 +78,13 @@ var TimeSeries = ui.Chart.image.series(
         .setOptions({
           title: 'Surface Temperature of ' + location,
           hAxis: {  // x-axis
-            viewWindow: {title: 'Acquisition Time'}
-          },
+            viewWindow: {title: 'Acquisition Time'
+                        }
+                 },
           vAxis: {  // y-axis
             viewWindow: {min: 253.15, max:333.15},
                         title: bandname + ', K'
-                        },
+                 },
         explorer: {},
         lineWidth: 1,
         pointSize: 4,
