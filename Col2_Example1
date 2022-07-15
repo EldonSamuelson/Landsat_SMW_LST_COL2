@@ -111,7 +111,7 @@ Map.addLayer(exImage.select('TPW'),tpwmap,'TCWV', false);
 Map.addLayer(exImage.select('TPWpos'),tpwposmap,'TCWVpos', false);
 Map.addLayer(exImage.select('FVC'),fvcmap, 'FVC', false);
 Map.addLayer(exImage.select('EM'),emmap, 'Emissivity', false);
-    // Add Thermal B10 Brightness Temperature Band with new Col2 Scaling Factor. Inspector will give the unsigned 16 bit integer value
+    // Add Thermal B10 Brightness Temperature Band (will give the unsigned 16 bit integer value, remove the /**/ for LST Scaling Factor)
 Map.addLayer(exImage.select('ST_B10')/*.multiply(0.00341802).add(149.0)*/,BTmap, 'TIR BT', false);
     // Add SR RGB with new Col2 Scaling Factor. Inspector gives unsigned 16-bit values
 Map.addLayer(exImage.multiply(0.0000275).add(-0.2),{bands: ['SR_B4', 'SR_B3', 'SR_B2'], min:0, max:0.3}, 'RGB');
