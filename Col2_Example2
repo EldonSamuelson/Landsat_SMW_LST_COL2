@@ -13,12 +13,16 @@ Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020.
     Remote Sensing, 12 (9), 1471; https://doi.org/10.3390/rs12091471
 
 Example 2:
-  This example shows how to get LST time series at the SURFRAD DRA site
-  It corresponds to the method used to extract time series for comparison with station 
-  LST used in Ermida et al. (2020).
+  This example shows how to get LST time series at (almost) anywhere in the world
+  It corresponds to the method used to extract time series for comparison with station LST 
+  as used in Ermida et al. (2020).
     
+    
+NOTED BUGS:
+  'Line 40: d.points[c] is undefined' - graph will freeze and no longer update. 
+   Current workaround is to re-run script.
 */
-// link to the code that computes the Landsat LST
+// link to the code that computes the Col 2 Landsat LST
 var LandsatLST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_Landsat_LST.js');
 // link to the code that computes broad-band emissivity
 var BBE = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_broadband_emiss.js');
@@ -41,6 +45,9 @@ Map.onClick(function(coords) {
     var location = 'Lon: ' + coords.lon.toFixed(3) +
                    ' Lat: ' + coords.lat.toFixed(3);
     var geometry = ee.Geometry.Point(coords.lon, coords.lat);
+
+print('Please wait while the chart is generated');
+print('The chart will be explorable - zoom in, draggable, etc ');
 
 // compute the LST for each Landsat
 var L9coll = LandsatLST.collection('L9', date_start, date_end, geometry, use_ndvi);
