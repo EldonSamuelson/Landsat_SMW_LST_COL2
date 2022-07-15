@@ -88,7 +88,7 @@ var emmap = {
         }; 
         
 // center and zoom map to AOI
-Map.centerObject(geometry, 9);
+Map.centerObject(geometry, 11);
 
 // Adding Map Layers
 Map.addLayer(exImage.select('TPW'),tpwmap,'TCWV', false);
