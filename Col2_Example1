@@ -1,3 +1,19 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var geometry = ee.FeatureCollection("users/SeamusWOD/26Counties_RoI"),
+    geometry2 = 
+    /* color: #98ff00 */
+    /* shown: false */
+    /* displayProperties: [
+      {
+        "type": "rectangle"
+      }
+    ] */
+    ee.Geometry.Polygon(
+        [[[-10.74497362323008, 52.34948719034636],
+          [-10.74497362323008, 51.98899298221422],
+          [-9.34421678729258, 51.98899298221422],
+          [-9.34421678729258, 52.34948719034636]]], null, false);
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
 https://github.com/sofiaermida/Landsat_SMW_LST
@@ -21,7 +37,20 @@ Example 1:
 var LandsatLST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_Landsat_LST.js');
 
 // select region of interest, date range, and landsat satellite
-var geometry = ee.Geometry.Rectangle([-8.91, 40.0, -8.3, 40.4]);
+var geometry2 = ee.FeatureCollection("users/SeamusWOD/26Counties_RoI").filter("NAME_1 == 'Kerry'");
+var geometry = 
+    /* color: #98ff00 */
+    /* displayProperties: [
+      {
+        "type": "rectangle"
+      }
+    ] */
+    ee.Geometry.Polygon(
+        [[[-10.74497362323008, 52.34948719034636],
+          [-10.74497362323008, 51.98899298221422],
+          [-9.34421678729258, 51.98899298221422],
+          [-9.34421678729258, 52.34948719034636]]], null, false);
+
 var satellite = 'L9';
 var date_start = '2022-01-01';
 var date_end = '2022-07-31';
@@ -31,8 +60,10 @@ var use_ndvi = true;
 var LandsatColl = LandsatLST.collection(satellite, date_start, date_end, geometry, use_ndvi);
 print(LandsatColl);
 
-// select the first feature
-var exImage = LandsatColl.first();
+// select the X (number) feature of the image collection
+var listOfImages = LandsatColl.toList((LandsatColl.size()));
+print(listOfImages);
+var exImage = ee.Image(listOfImages.get(20));
 
 // Visualisation Palettes
 var cmap1 = ['blue', 'cyan', 'green', 'yellow', 'red'];
