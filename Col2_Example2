@@ -96,15 +96,17 @@ var TimeSeries = ui.Chart.image.series(
         lineWidth: 1,
         pointSize: 4,
         trendlines: {
-          // Draw a trendline for data series 0.
+          // Draw a trendline for data series X (0-6).
           1: {
+            type: 'polynomial',
+            degree: 20 ,
             visibleInLegend: true,
-            labelInLegend: bandname + ' Temperature Trend',
+            labelInLegend:'LST Series 1 Polynomial Trend',
           },
-          /*1: {
+          2: {
             visibleInLegend: true,
-            labelInLegend: 'L7 Trend',
-          },*/
+            labelInLegend: 'LST Series 2 Trendline',
+          },
           }
 });
 Chartpanel.widgets().set(0, TimeSeries);
