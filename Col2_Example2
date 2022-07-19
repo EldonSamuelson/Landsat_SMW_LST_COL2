@@ -30,7 +30,7 @@ var BBE = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_broadband_emiss.js')
 // select region of interest, date range, and landsat satellite
 var site = ee.Geometry.Point([0,51.5]);
 //var geometry = site.buffer(30);
-var date_start = '1982-06-01';
+var date_start = '2012-06-01';
 var date_end = '2022-07-30';
 var use_ndvi = true;
 
@@ -47,7 +47,7 @@ Map.onClick(function(coords) {
     var geometry = ee.Geometry.Point(coords.lon, coords.lat);
 
 print('Please wait while the chart is generated');
-print('The chart will be explorable - zoom in, draggable, etc ');
+
 
 // compute the LST for each Landsat
 var L9coll = LandsatLST.collection('L9', date_start, date_end, geometry, use_ndvi);
@@ -97,15 +97,15 @@ var TimeSeries = ui.Chart.image.series(
         pointSize: 4,
         trendlines: {
           // Draw a trendline for data series X (0-6).
-          1: {
+          0: { // Series 2 at full time (1982-present) usually means Landsat 7 or 8
             type: 'polynomial',
-            degree: 20 ,
+            degree: 3 ,
             visibleInLegend: true,
-            labelInLegend:'LST Series 1 Polynomial Trend',
+            labelInLegend:'LST Series 1 Polynomial Trend'
           },
-          2: {
+          1: { // Series 1 usually is Landsat 5 or 7
             visibleInLegend: true,
-            labelInLegend: 'LST Series 2 Trendline',
+            labelInLegend: 'LST Series 1 Trendline'
           },
           }
 });
@@ -119,7 +119,7 @@ var Chartpanel = ui.Panel({
   position: "bottom-left"
   }})
     .add(ui.Label({
-      value: 'Click on a place to generate a temperature timeseries chart of that point', 
+      value: 'Click on a place to generate a temperature timeseries chart of that point\nThe chart will be explorable - zoom in, draggable, etc', 
       style: {position: 'top-center', textAlign: 'center', fontWeight: 'bold', whiteSpace: 'pre'}
     }));
 Map.add(Chartpanel);
