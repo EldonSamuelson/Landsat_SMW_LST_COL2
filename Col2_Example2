@@ -19,7 +19,7 @@ Example 2:
     
     
 NOTED BUGS:
-  'Line 40: d.points[c] is undefined' - graph will freeze and no longer update. 
+  'Line 40: d.points[c] is undefined' - graph will freeze and no longer update.
    Current workaround is to re-run script.
 */
 // link to the code that computes the Col 2 Landsat LST
@@ -95,7 +95,7 @@ var TimeSeries = ui.Chart.image.series(
         explorer: {},
         lineWidth: 1,
         pointSize: 4,
-        trendlines: {
+        /*trendlines: {
           // Draw a trendline for data series X (0-6).
           0: { // Series 2 at full time (1982-present) usually means Landsat 7 or 8
             type: 'polynomial',
@@ -107,7 +107,7 @@ var TimeSeries = ui.Chart.image.series(
             visibleInLegend: true,
             labelInLegend: 'LST Series 1 Trendline'
           },
-          }
+          }*/
 });
 Chartpanel.widgets().set(0, TimeSeries);
 });
