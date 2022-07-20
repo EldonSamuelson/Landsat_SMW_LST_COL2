@@ -20,7 +20,7 @@ Example 2:
     
 NOTED BUGS:
   'Line 40: d.points[c] is undefined' - graph will freeze and no longer update.
-   Current workaround is to re-run script.
+   Current workaround is to not activate trendlines, or re-run script.
 */
 // link to the code that computes the Col 2 Landsat LST
 var LandsatLST = require('users/SeamusWOD/SE_LST_COL2:Modules/Col2_Landsat_LST.js');
@@ -44,9 +44,9 @@ Map.setOptions("HYBRID");
 Map.onClick(function(coords) {
     var location = 'Lon: ' + coords.lon.toFixed(3) +
                    ' Lat: ' + coords.lat.toFixed(3);
-    var geometry = ee.Geometry.Point(coords.lon, coords.lat);
+    var geometry = ee.Geometry.Point(coords.lon, coords.lat).buffer(30);
 
-print('Please wait while the chart is generated');
+print('Please wait while the chart is generated for ' + location);
 
 
 // compute the LST for each Landsat
@@ -80,14 +80,10 @@ LandsatColl = LandsatColl.merge(L4coll.map(getband('L4',bandname)));
 
 // Timeseries chart (see console)
 var TimeSeries = ui.Chart.image.series(
-    LandsatColl, geometry/*, ee.Reducer.mean(), 30, 'system:time_start'*/)
+    LandsatColl, geometry, ee.Reducer.mean(), 30, 'system:time_start')
         .setChartType('ScatterChart')
         .setOptions({
           title: 'Surface Temperature of ' + location,
-          hAxis: {  // x-axis
-            viewWindow: {title: 'Acquisition Time'
-                        }
-                 },
           vAxis: {  // y-axis
             viewWindow: {min: 253.15, max:333.15},
                         title: bandname + ', K'
