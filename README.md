@@ -1,5 +1,5 @@
-# Landsat_SMW_LST
-Land Surface Temperature from Landsat on Google Earth Engine. This is the original forked master with no changes since 10th December 2020. The [tributary branch](https://github.com/EldonSamuelson/Landsat_SMW_LST_COL2/tree/tributary#readme) contains my own personal changes.
+# Landsat_SMW_LST (Collection 1)
+Land Surface Temperature from Landsat on Google Earth Engine. **This is the original Collection 1 forked master, with no changes since 10th December 2020.** The [tributary branch](https://github.com/EldonSamuelson/Landsat_SMW_LST_COL2/tree/tributary#readme) contains my own personal changes.
 
 ## Acknowledgement
 Original Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia) https://github.com/sofiaermida/Landsat_SMW_LST
