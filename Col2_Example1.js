@@ -37,17 +37,22 @@ var geometry =
 
 var satellite = 'L9';
 var date_start = '2022-01-01';
-var date_end = '2022-07-31';
+var date_end = '2022-08-31';
 var use_ndvi = true;
+var IC_List_Number = 24;
 
 // get landsat collection with added variables: NDVI, FVC, TPW, EM, LST
 var LandsatColl = LandsatLST.collection(satellite, date_start, date_end, geometry, use_ndvi);
 print(LandsatColl);
 
+
+
 // select the X (number) feature of the image collection
+print('Previewing Tile: ' + IC_List_Number);
+print('Change the IC_List_Number to get a different Tile (results may vary)')
 var listOfImages = LandsatColl.toList((LandsatColl.size()));
-print(listOfImages);
-var exImage = ee.Image(listOfImages.get(20));
+//print(listOfImages);
+var exImage = ee.Image(listOfImages.get(IC_List_Number));
 
 // Visualisation Palettes
 var LSTmap = {
@@ -88,7 +93,7 @@ var emmap = {
         }; 
         
 // center and zoom map to AOI
-Map.centerObject(geometry, 11);
+Map.centerObject(geometry, 9);
 
 // Adding Map Layers
 Map.addLayer(exImage.select('TPW'),tpwmap,'TCWV', false);
