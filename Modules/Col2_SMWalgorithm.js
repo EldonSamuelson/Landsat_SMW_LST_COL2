@@ -74,8 +74,9 @@ exports.addBand = function(landsat){
                         'B6'))));
     
     // compute the LST
+    // comment out the outer brackets and -273.15 to get Kelvin
     var lst = image.expression(
-      'A*Tb1/em1 + B/em1 + C',
+      '(A*Tb1/em1 + B/em1 + C)-273.15',
          {'A': A_img,
           'B': B_img,
           'C': C_img,
